@@ -3,6 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/coree.spacefox.fr.iml" filepath="$PROJECT_DIR$/coree.spacefox.fr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fr.spacefox.coree.scripts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/fr.spacefox.coree.scripts.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/fr.spacefox.coree.scripts.test.iml" filepath="$PROJECT_DIR$/.idea/modules/fr.spacefox.coree.scripts.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scripts.iml" filepath="$PROJECT_DIR$/.idea/modules/scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scripts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/scripts.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scripts.test.iml" filepath="$PROJECT_DIR$/.idea/modules/scripts.test.iml" />
     </modules>
   </component>
 </project>

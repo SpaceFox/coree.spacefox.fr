@@ -1,0 +1,38 @@
+{{ partial "header.html" . }}
+<h1>Lieu : {{ .Params.title }} </h1>
+
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-sm-9">
+            <div id="mapid" class="card-img"></div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card-body">
+                <p>{{ .Content }}</p>
+                {{ with .Params.wikipedia}}<a href="{{ . }}" class="btn btn-secondary">Wikipedia</a>{{ end }}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ partial "gallery.html" . }}
+
+<link rel="stylesheet" href="/css/leaflet@1.6.0/dist/leaflet.css"/>
+<script src="/js/leaflet@1.6.0/dist/leaflet.js"></script>
+<script>
+    const bounds = {
+        korea: [[38.62,125.80],[33.11,129.60]],
+        seoul: [[37.61,126.88],[37.50,127.10]]
+    };
+    let map = L.map('mapid').fitBounds(bounds[{{ .Params.mapBounds }}]);
+    L.control.scale({ metric: true, imperial: false }).addTo(map);
+    L.marker([{{ .Params.lat }}, {{ .Params.long }}]).addTo(map);
+    L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=QtM9BkImVN7JGglFh2Lp',{
+        tileSize: 512,
+        zoomOffset: -1,
+        minZoom: 1,
+        attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>',
+        crossOrigin: true
+    }).addTo(map);
+</script>
+{{ partial "footer.html" . }}

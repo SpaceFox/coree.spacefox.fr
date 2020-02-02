@@ -1,0 +1,35 @@
+{{ partial "header.html" . }}
+
+<h1>Lieux</h1>
+<div class="card-columns home-columns">
+    {{ range .Site.Taxonomies.lieux }}
+    <a href="{{ .Page.Permalink }}" class="card">
+        <picture>
+            <source type="image/webp" srcset="/images/home/{{ .Page.Params.homeimg }}.webp">
+            <source type="image/jpeg" srcset="/images/home/{{ .Page.Params.homeimg }}.jpg">
+            <img src="/images/home/{{ .Page.Params.homeimg }}.jpg" class="card-img-top" alt="{{ .Page.Title }}">
+        </picture>
+        <div class="card-img-overlay">
+            <h5 class="card-title">{{ .Page.Title }}</h5>
+        </div>
+    </a>
+    {{ end }}
+</div>
+
+<h1>Thèmes</h1>
+<div class="card-columns home-columns">
+    {{ range .Site.Taxonomies.themes }}
+    <a href="{{ .Page.Permalink }}" class="card">
+        <picture>
+            <source type="image/webp" srcset="/images/home/{{ .Page.Params.homeimg }}.webp">
+            <source type="image/jpeg" srcset="/images/home/{{ .Page.Params.homeimg }}.jpg">
+            <img src="/images/home/{{ .Page.Params.homeimg }}.jpg" class="card-img-top" alt="{{ .Page.Title }}">
+        </picture>
+        <div class="card-img-overlay">
+            <h5 class="card-title">{{ .Page.Title }}</h5>
+        </div>
+    </a>
+    {{ end }}
+</div>
+
+{{ partial "footer.html" . }}

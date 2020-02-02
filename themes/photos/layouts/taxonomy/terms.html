@@ -1,0 +1,12 @@
+{{ partial "header.html" . }}
+<section id="menu">
+</section>
+
+        <div class="card-columns">
+            {{ range .Pages }}
+            A
+            [{{ .Page.Title }}
+            {{ end }}
+        </div>
+
+{{ partial "footer.html" . }}

@@ -1,0 +1,59 @@
+
+</div>
+<footer class="footer">
+    <div class="container">
+        <div class="row text-secondary border-top mt-3">
+            <div class="col">
+                <small>Le site et son contenu sont intégralement et librement réutilisables, y compris pour des projets
+                    commerciaux <a href="/pages/licences">selon les conditions listées ici</a>.</small>
+            </div>
+        </div>
+        <div class="row text-secondary">
+            <div class="col-7">
+                <div class="media">
+                    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+                        <img src="/images/cc-by.png">
+                    </a>
+                    <div class="media-body">
+                        <small>Toutes les images et textes du site sont mis à disposition selon les termes de la
+                            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licence Creative Commons
+                                Attribution 4.0 International</a>.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="media">
+                    <div class="media-body">
+                        <small>Le site est mis à disposition selon les termes de
+                            <a href="https://opensource.org/licenses/MIT">la licence MIT</a>. Le code source est disponible
+                            <a href="https://github.com/SpaceFox/coree.spacefox.fr">sur Github</a>.
+                        </a>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="/js/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="/js/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            return $(".carousel.lazy").on("slide.bs.carousel", function(ev) {
+                var lazy;
+                lazy = $(ev.relatedTarget).find("img[data-src]");
+                lazy.attr("src", lazy.data('src'));
+                lazy.removeAttr("data-src");
+                var index = $(ev.relatedTarget).find("img[data-index]").data('index');
+                $(".modal-footer").hide();
+                $("#modal-footer-id-" + index).show();
+            });
+        });
+    </script>
+</footer>
+</body>
+</html>

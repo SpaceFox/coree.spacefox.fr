@@ -1,0 +1,12 @@
+{{ partial "header.html" . }}
+<section id="menu">
+</section>
+<pre>{{ printf "%#v" .Data }}</pre>
+<h1>{{ .Data.Singular}} : {{ .Params.title }} </h1>
+<div class="card-columns">
+    {{ range .Pages }}
+    {{ .Render "summary"}}
+    {{ end }}
+</div>
+
+{{ partial "footer.html" . }}

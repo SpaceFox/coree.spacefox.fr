@@ -1,0 +1,3 @@
+---
+title: "Panoramique (horizontal long)"
+---

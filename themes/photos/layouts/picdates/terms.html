@@ -1,0 +1,8 @@
+{{ partial "header.html" . }}
+<h1>Dates de prise de vue</h1>
+<div class="card-columns">
+    {{ range .Pages }}
+    [{{ .Page.Title }}
+    {{ end }}
+</div>
+{{ partial "footer.html" . }}

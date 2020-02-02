@@ -1,0 +1,8 @@
+{{ partial "header.html" . }}
+<h1>Thème : {{ .Params.title }} </h1>
+
+<p>{{ .Content }}</p>
+
+{{ partial "gallery.html" . }}
+
+{{ partial "footer.html" . }}

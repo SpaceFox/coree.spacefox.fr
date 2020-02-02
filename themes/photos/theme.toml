@@ -1,0 +1,13 @@
+name = "Photos"
+license = "MIT"
+licenselink = "Link to theme's license"
+description = "Theme description"
+homepage = "Website of your theme"
+tags = ["blog", "company"]
+features = []
+min_version = "0.59.1"
+
+# If the theme has a single author
+[author]
+    name = "SpaceFox"
+    homepage = "Your website"

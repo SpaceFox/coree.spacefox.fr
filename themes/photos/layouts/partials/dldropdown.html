@@ -1,0 +1,12 @@
+<div class="btn-group" role="group">
+    <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Télécharger
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        {{ if (.Params.fileSize2k) }}<a class="dropdown-item" href="/images/2k/{{ .Params.img }}.jpg">Full HD <em>({{ .Params.width2k }} x {{ .Params.height2k }}, {{ .Params.fileSize2k }})</em></a>{{ end }}
+        {{ if (.Params.fileSize3k) }}<a class="dropdown-item" href="/images/3k/{{ .Params.img }}.jpg">3000 pixels <em>({{ .Params.width3k }} x {{ .Params.height3k }}, {{ .Params.fileSize3k }})</em></a>{{ end }}
+        {{ if (.Params.fileSize4k) }}<a class="dropdown-item" href="/images/4k/{{ .Params.img }}.jpg">Ultra HD <em>({{ .Params.width4k }} x {{ .Params.height4k }}, {{ .Params.fileSize4k }})</em></a>{{ end }}
+        {{ if (.Params.fileSizeFull) }}<a class="dropdown-item" href="/images/full/{{ .Params.img }}.jpg">Taille maximale <em>({{ .Params.widthFull }} x {{ .Params.heightFull }}, {{ .Params.fileSizeFull }})</em></a>{{ end }}
+        {{/* if (.Params.fileSizeRaw) }}<a class="dropdown-item" href="/images/raw/{{ .Params.img }}.NEF">Fichier RAW <em>({{ .Params.widthRaw }} x {{ .Params.heightRaw }}, {{ .Params.fileSizeRaw }})</em></a>{{ end */}}
+    </div>
+</div>

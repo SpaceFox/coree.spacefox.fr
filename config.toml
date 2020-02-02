@@ -1,3 +1,11 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "https://coree.spacefox.fr/"
+languageCode = "fr-FR"
+theme = "photos"
+title = "Un renard en Corée"
+
+[taxonomies]
+category = "categories"
+lieux = "lieux"
+picdate = "picdates"
+ratio = "ratio"
+themes = "themes"

@@ -1,0 +1,59 @@
+<!-- Gallery -->
+<div class="card-columns" id="gallery" data-toggle="modal" data-target="#exampleModal">
+    {{ range $page_index, $page_val := .Pages.ByDate }}
+    <div class="card">
+        <picture>
+            <source type="image/webp" srcset="/images/mini/{{ .Params.img  }}.webp">
+            <source type="image/jpeg" srcset="/images/mini/{{ .Params.img  }}.jpg">
+            <img src="/images/mini/{{ .Params.img }}.jpg"
+                 class="card-img-top"
+                 data-target="#carouselExample"
+                 data-slide-to="{{ $page_index }}">
+        </picture>
+    </div>
+    {{ end }}
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-full modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="carouselExample" class="carousel slide carousel-fade lazy" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner">
+                        {{ range $page_index, $page_val := .Pages.ByDate }}
+                        <div class="carousel-item {{ if (eq $page_index 0) }}active{{ end }}">
+                            <picture>
+                                <source type="image/webp" srcset="/images/2k/{{ .Params.img  }}.webp">
+                                <source type="image/jpeg" srcset="/images/2k/{{ .Params.img  }}.jpg">
+                                <img class="d-block"
+                                     data-index="{{ .Params.img }}"
+                                     {{ if (ne $page_index 0) }}data-{{ end }}src="/images/2k/{{ .Params.img }}.jpg"
+                                     alt="First slide">
+                            </picture>
+                        </div>
+                        {{ end }}
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Précédent</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Suivant</span>
+                    </a>
+                </div>
+            </div>
+            {{ range $page_index, $page_val := .Pages.ByDate }}
+            <div class="modal-footer" id="modal-footer-id-{{ .Params.img }}" {{ if (ne $page_index 0) }}style="display: none"{{ end }}>
+                <h5>{{ if (.Params.title) }}{{ .Params.title }}{{ else }}<em>(Sans titre)</em>{{ end }}</h5>
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <a role="button" class="btn btn-secondary" href="{{ .Page.Permalink }}">Détails</a>
+                    {{ partial "dldropdown.html" . }}
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
+                </div>
+
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>

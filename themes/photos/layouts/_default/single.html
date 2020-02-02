@@ -1,0 +1,65 @@
+{{ partial "header.html" . }}
+
+<div class="row">
+    <div class="col">
+        <div class="card">
+            <div class="card-header">{{ .Title }}</div>
+            <img src="/images/2k/{{ .Params.img }}.jpg" class="card-img-top" alt="{{ .Title }}">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="card-title">{{ .Title }}</h5>
+                        <p class="card-text">{{ .Content }}</p>
+                        {{ partial "dldropdown.html" . }}
+                    </div>
+                    <div class="col-3">
+                        <h5 class="card-title">Classements</h5>
+                        {{ with .Params.lieux }}
+                            <h6>Lieu :  {{ range . }}{{ with ($.Site.GetPage (printf "/lieux/%s" .)) }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}{{ end }}</h6>
+                        {{ end }}
+                        {{ with .Params.picdates }}
+                            <h6>Date de prise de vue :  {{ range . }}{{ with ($.Site.GetPage (printf "/picdates/%s" .)) }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}{{ end }}</h6>
+                        {{ end }}
+                        {{ with .Params.ratio }}
+                            <h6>Ratio :  {{ range . }}{{ with ($.Site.GetPage (printf "/ratio/%s" .)) }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}{{ end }}</h6>
+                        {{ end }}
+                        {{ with .Params.themes }}
+                            <h6>Thèmes</h6>
+                            <ul>
+                                {{ range . }}{{ with ($.Site.GetPage (printf "/themes/%s" .)) }}
+                                <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                                {{ end }}{{ end }}
+                            </ul>
+                        {{ end }}
+                    </div>
+                    <div class="col-3">
+                        <h5 class="card-title">Métadonnées (EXIF)</h5>
+                        <p class="card-text">Date de prise de vue : {{ .Params.date }}<br>
+                            Vitesse : {{ .Params.speed }}<br>
+                            Ouverture : f/{{ .Params.aperture }}<br>
+                            Longueur focale : {{ .Params.focal }} mm<br>
+                            Sensibilité : {{ .Params.iso }} ISO<br>
+                            Largeur : {{ .Params.widthFull }} pixels<br>
+                            Hauteur : {{ .Params.heightFull }} pixels<br>
+                            Poids : {{ .Params.fileSizeFull }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer text-muted">
+                <div class="row">
+                    <div class="col">
+                        {{ with .PrevInSection }}
+                        <a class="previous" href="{{.Permalink}}"> {{.Title}}</a>
+                        {{ end }}
+                    </div>
+                    <div class="col text-right">
+                        {{ with .NextInSection }}
+                        <a class="next" href="{{.Permalink}}"> {{.Title}}</a>
+                        {{ end }}
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ partial "footer.html" . }}
