@@ -7,12 +7,12 @@
             <img src="/images/2k/{{ .Params.img }}.jpg" class="card-img-top" alt="{{ .Title }}">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                         <h5 class="card-title">{{ .Title }}</h5>
                         <p class="card-text">{{ .Content }}</p>
                         {{ partial "dldropdown.html" . }}
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-sm-6">
                         <h5 class="card-title">Classements</h5>
                         {{ with .Params.lieux }}
                             <h6>Lieu :  {{ range . }}{{ with ($.Site.GetPage (printf "/lieux/%s" .)) }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}{{ end }}</h6>
@@ -32,16 +32,16 @@
                             </ul>
                         {{ end }}
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3 col-sm-6">
                         <h5 class="card-title">Métadonnées (EXIF)</h5>
-                        <p class="card-text">Date de prise de vue : {{ .Params.date }}<br>
-                            Vitesse : {{ .Params.speed }}<br>
-                            Ouverture : f/{{ .Params.aperture }}<br>
-                            Longueur focale : {{ .Params.focal }} mm<br>
-                            Sensibilité : {{ .Params.iso }} ISO<br>
-                            Largeur : {{ .Params.widthFull }} pixels<br>
-                            Hauteur : {{ .Params.heightFull }} pixels<br>
-                            Poids : {{ .Params.fileSizeFull }}</p>
+                        <p class="card-text"><strong>Date de prise de vue :</strong><br>{{ .Params.date.Format "2006-01-02 15:04:15 -0700" }}<br>
+                            <strong>Vitesse :</strong> {{ .Params.speed }}<br>
+                            <strong>Ouverture :</strong> f/{{ .Params.aperture }}<br>
+                            <strong>Longueur focale :</strong> {{ .Params.focal }} mm<br>
+                            <strong>Sensibilité :</strong> {{ .Params.iso }} ISO<br>
+                            <strong>Largeur :</strong> {{ .Params.widthFull }} pixels<br>
+                            <strong>Hauteur :</strong> {{ .Params.heightFull }} pixels<br>
+                            <strong>Poids :</strong> {{ .Params.fileSizeFull }}</p>
                     </div>
                 </div>
             </div>

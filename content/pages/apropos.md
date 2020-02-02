@@ -5,3 +5,5 @@ layout: plain
 ---
 En fait, c'est des photos de vacances. Mais si vous leur trouvez une autre utilité, faites-vous plaisir, [vous avez le
 droit de les réutiliser](/pages/licences).
+
+Aucune de ces photos n'est retouchée au-delà du simple développement RAW.
