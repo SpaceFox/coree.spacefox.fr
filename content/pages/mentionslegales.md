@@ -1,6 +1,6 @@
 ---
 title: "Mentions légales"
-date: "2020-02-02:02:02:02"
+date: "2020-02-02T02:02:02+01:00"
 layout: plain
 ---
 ## Hébergement

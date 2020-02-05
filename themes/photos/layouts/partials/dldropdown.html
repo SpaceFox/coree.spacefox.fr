@@ -1,6 +1,6 @@
 <div class="btn-group" role="group">
     <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Télécharger
+        <i class="fas fa-download"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
         {{ if (.Params.fileSize2k) }}<a class="dropdown-item" href="/images/2k/{{ .Params.img }}.jpg">Full HD <em>({{ .Params.width2k }} x {{ .Params.height2k }}, {{ .Params.fileSize2k }})</em></a>{{ end }}

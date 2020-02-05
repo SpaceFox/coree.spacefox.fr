@@ -18,6 +18,19 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-full modal-dialog-centered" role="document">
         <div class="modal-content">
+            {{ range $page_index, $page_val := .Pages.ByDate }}
+            <div class="modal-header" id="modal-header-id-{{ .Params.img }}" {{ if (ne $page_index 0) }}style="display: none"{{ end }}>
+                <h5 class="modal-title">{{ if (.Params.title) }}{{ .Params.title }}{{ else }}<em>(Sans titre)</em>{{ end }}</h5>
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                    <a class="btn btn-secondary" href="#carousel" role="button" data-slide="prev"><i class="fas fa-backward"></i></a>
+                    <a role="button" class="btn btn-secondary" href="{{ .Page.Permalink }}"><i class="fas fa-info-circle"></i></a>
+                    {{ partial "dldropdown.html" . }}
+                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fas fa-times-circle"></i></button>
+                    <a class="btn btn-secondary" href="#carousel" role="button" data-slide="next"><i class="fas fa-forward"></i></a>
+                </div>
+
+            </div>
+            {{ end }}
             <div class="modal-body">
                 <div id="carousel" class="carousel slide carousel-fade lazy" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner">
@@ -44,17 +57,6 @@
                     </a>
                 </div>
             </div>
-            {{ range $page_index, $page_val := .Pages.ByDate }}
-            <div class="modal-footer" id="modal-footer-id-{{ .Params.img }}" {{ if (ne $page_index 0) }}style="display: none"{{ end }}>
-                <h5>{{ if (.Params.title) }}{{ .Params.title }}{{ else }}<em>(Sans titre)</em>{{ end }}</h5>
-                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                    <a role="button" class="btn btn-secondary" href="{{ .Page.Permalink }}">Détails</a>
-                    {{ partial "dldropdown.html" . }}
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fermer</button>
-                </div>
-
-            </div>
-            {{ end }}
         </div>
     </div>
 </div>

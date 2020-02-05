@@ -15,9 +15,9 @@
                         <img src="/images/cc-by.png" alt="Logo CC BY 4.0">
                     </a>
                     <div class="media-body">
-                        <small>Toutes les images et textes du site sont mis à disposition selon les termes de la
-                            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licence Creative Commons
-                                Attribution 4.0 International</a>.
+                        <small>Toutes les images et textes du site sont mis à disposition par SpaceFox selon les termes
+                            de la <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Licence Creative
+                                Commons Attribution 4.0 International</a>.
                         </small>
                     </div>
                 </div>
@@ -25,9 +25,9 @@
             <div class="col-md-5">
                 <div class="media">
                     <div class="media-body">
-                        <small>Le site est mis à disposition selon les termes de
-                            <a href="https://opensource.org/licenses/MIT">la licence MIT</a>. Le code source est disponible
-                            <a href="https://github.com/SpaceFox/coree.spacefox.fr">sur Github</a>.
+                        <small>Le site est mis à disposition par SpaceFox selon les termes de
+                            <a href="https://opensource.org/licenses/MIT">la licence MIT</a>. Le code source est
+                            disponible <a href="https://github.com/SpaceFox/coree.spacefox.fr">sur Github</a>.
                         </a>
                         </small>
                     </div>
@@ -49,8 +49,8 @@
                 lazy.attr("src", lazy.data('src'));
                 lazy.removeAttr("data-src");
                 var index = $(ev.relatedTarget).find("img[data-index]").data('index');
-                $(".modal-footer").hide();
-                $("#modal-footer-id-" + index).show();
+                $(".modal-header").hide();
+                $("#modal-header-id-" + index).show();
             });
         });
     </script>
