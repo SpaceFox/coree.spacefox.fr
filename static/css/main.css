@@ -5,13 +5,16 @@ body { font-family: 'Noto Serif KR', sans-serif; }
 .dropdown-item em { color: gray; }
 #mapid { height: 75vh; }
 .carousel-control-prev, .carousel-control-next { opacity: 0; }
-.home-columns .card-img-overlay { height: 100%; }
+.home-columns .card-img-overlay { height: 100%; padding: 0; }
 .home-columns .card-img-overlay:hover { background-color: rgba(0, 0, 0, 0.5); }
 .home-columns .card-img-overlay h5 {
-    position: absolute; top: 50%; transform: translateY(-50%); margin: 0 1.25rem 0 0;
-    color: #ddd; font-weight: bold; text-shadow: black 0 0 1px;
+    position: absolute; bottom: 0; padding: 1rem; margin: 0; width: 100%;
+    color: #ccc; font-size: 1rem; font-weight: bold; text-align: center;
+    background-color: rgba(0,0,0,0.5)
 }
-.home-columns .card-img-overlay:hover h5 { color: white; }
+.home-columns .card-img-overlay:hover h5 {
+    color: white; background-color: transparent; bottom: unset; top: 50%; transform: translateY(-50%);
+}
 .card-columns.home-columns { column-count: 2; }
 @media (min-width: 576px) {
     .card-columns.home-columns {

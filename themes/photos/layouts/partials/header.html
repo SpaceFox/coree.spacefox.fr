@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" prefix="og: http://ogp.me/ns#">
 <head>
     <meta charset="utf-8">
     <meta name="language" content="fr">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{ if .IsPage }}{{ if .Params.summary }}{{ .Params.summary | markdownify }}{{ else }}{{ if .Truncated }}{{ .Summary }}{{ else }}{{ .Content }}{{ end }}{{ end }}{{ else }}{{ if .IsHome }}{{ else }}{{ .Title }} — {{ end }}Photographies de Corée du Sud, par SpaceFox{{ end }}">
+    <meta name="description" content="{{ if .IsPage }}{{ if .Params.img }}Photo : {{ end }}{{ .Title }}{{ else }}{{ if .IsHome }}Accueil{{ else }}{{ .Title }}{{ end }}{{ end }} – Photographies de voyage en Corée du Sud, par SpaceFox, sous licence libre (CC BY 4.0)">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -17,7 +17,18 @@
     {{ hugo.Generator }}
     <meta property="og:site_name" content="{{ .Site.Title }}">
     <meta property="og:url" content="{{ .Permalink }}"/>
-    <meta property="og:locale" content="fr"/>
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ .Title }}" />
+    <meta property="og:description" content="{{ if .IsPage }}{{ if .Params.img }}Photo : {{ end }}{{ .Title }}{{ else }}{{ if .IsHome }}Accueil{{ else }}{{ .Title }}{{ end }}{{ end }} – Photographies de voyage en Corée du Sud, par SpaceFox, sous licence libre (CC BY 4.0)" />
+    <meta property="og:image" content="{{ .Site.BaseURL }}{{ if .Params.img }}images/2k/{{ .Params.img }}.jpg{{ else if .Params.homeimg }}images/2k/{{ .Params.homeimg }}.jpg{{ else }}images/SpaceFoxKR.png{{ end }}" />
+    {{ if .Params.img }}
+    <meta property="og:image:width" content="{{ .Params.width2k }}"/>
+    <meta property="og:image:height" content="{{ .Params.height2k }}"/>
+    {{ end }}
+    <meta property="og:locale" content="fr_FR"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@Renard_spatial" />
+
     <link rel="canonical" href="{{ if .Params.canonical }}{{ .Params.canonical }}{{ else }}{{ .Permalink }}{{ end }}">
 
     <link href="/css/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
